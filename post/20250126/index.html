@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>哪吒探针V1启用google登录 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">哪吒探针V1启用google登录</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2025-01-26</span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="1-创建google项目">1 创建google项目</h1>
+<h2 id="1">①</h2>
+<p>打开 https://console.cloud.google.com/apis/dashboard</p>
+<h2 id="2">②</h2>
+<p>点击新建项目创建项目</p>
+<h2 id="3">③</h2>
+<p>项目名称随便取个，叫nezha完事了</p>
+<h2 id="4">④</h2>
+<p>点击创建，完成创建</p>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/VsVrKPe.png" alt="image-20250126165956579" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s3.qklg.net/img/TkX4DRg.png" alt="image-20250126170032042" loading="lazy"></figure>
+<h1 id="2-配置oauth">2 配置OAuth</h1>
+<h2 id="1-2">①</h2>
+<p>点击左侧的API和服务&quot; → &quot;OAuth权限请求页面&quot;</p>
+<p>打开链接 https://console.cloud.google.com/apis/credentials/ 直达</p>
+<h2 id="2-2">②</h2>
+<p>用户类型选择外部，点击创建</p>
+<figure data-type="image" tabindex="3"><img src="https://s3.qklg.net/img/5lBCoj6.png" alt="image-20250126170651299" loading="lazy"></figure>
+<h2 id="3-2">③</h2>
+<p>应用名称填写随便填写一个</p>
+<p>用户支持电子邮件，选择你自己的gmail邮箱</p>
+<p>应用徽标，选择一个图片传上去，</p>
+<p>应用网域，填写你探针的地址，列如https://nezha.example.com</p>
+<p>已获授权的网域填写你的哪吒探针的顶级域名 example.com</p>
+<p>开发者信息填写你的gmail邮箱</p>
+<p>保存并继续</p>
+<figure data-type="image" tabindex="4"><img src="https://s3.qklg.net/img/vzyD6mV.png" alt="image-20250126171129732" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://s3.qklg.net/img/mKmS0vQ.png" alt="image-20250126171259628" loading="lazy"></figure>
+<figure data-type="image" tabindex="6"><img src="https://s3.qklg.net/img/MKGCSgh.png" alt="image-20250126171327087" loading="lazy"></figure>
+<h2 id="4-2">④</h2>
+<p>范围的话，点添加或移除范围，选择前两个就够了，保存并继续</p>
+<figure data-type="image" tabindex="7"><img src="https://s3.qklg.net/img/oGNmo74.png" alt="image-20250126172059522" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://s3.qklg.net/img/BVPnDfe.png" alt="image-20250126172103409" loading="lazy"></figure>
+<h2 id="5">⑤</h2>
+<p>测试用户</p>
+<p>点击添加add users，把自己的gmail邮箱输入就ok了，保存并继续</p>
+<h2 id="6">⑥</h2>
+<p>显示摘要，就完成了</p>
+<h1 id="3-配置oauth凭据">3 配置OAuth凭据</h1>
+<h2 id="1-3">①</h2>
+<p>左侧的&quot;API和服务-凭据</p>
+<h2 id=""></h2>
+<p>点击链接直达 https://console.cloud.google.com/apis/credentials</p>
+<p>创建凭据-oatuth客户端id</p>
+<h2 id="2-3"><img src="https://s3.qklg.net/img/CC7NJfE.png" alt="image-20250126172543453" loading="lazy">②</h2>
+<p>选择应用类型（Web应用)</p>
+<figure data-type="image" tabindex="9"><img src="https://s3.qklg.net/img/nMy3S5P.png" alt="image-20250126172655544" loading="lazy"></figure>
+<h2 id="3-3">③</h2>
+<p>设置已获授权的 JavaScript 来源 填写你的探针域名 https://nezha.example.com</p>
+<p>已获授权的重定向 URI，填写哪吒的callback地址   https://nezha.example.com/api/v1/oauth2/callback</p>
+<p>点击创建，获得</p>
+<p>clientid和clientsecret</p>
+<figure data-type="image" tabindex="10"><img src="https://s3.qklg.net/img/ytIuOSb.png" alt="image-20250126173651162" loading="lazy"></figure>
+<h1 id="4-哪吒面板配置">4 哪吒面板配置</h1>
+<h2 id="1-4">①</h2>
+<p>打开/opt/nezha/dashboard/data/config.yaml下加入如下</p>
+<p>​    clientid和clientsecret替换上面生成的，</p>
+<pre><code>oauth2:
+  Google:
+    clientid: &quot;your id&quot;
+    clientsecret: &quot;your secret&quot;
+    endpoint:
+      authurl: &quot;https://accounts.google.com/o/oauth2/v2/auth&quot;
+      tokenurl: &quot;https://oauth2.googleapis.com/token&quot;
+    scopes:
+       - &quot;https://www.googleapis.com/auth/userinfo.email&quot;
+    userinfourl: &quot;https://openidconnect.googleapis.com/v1/userinfo&quot;
+    useridpath: &quot;sub&quot;
+</code></pre>
+<h2 id="2-4">②</h2>
+<p>重启docker</p>
+<p>重启后登录 登录哪吒探针的后台，进入“个人信息”页面绑定即可。</p>
+<figure data-type="image" tabindex="11"><img src="https://s3.qklg.net/img/R0L7KWB.png" alt="image-20250126175540357" loading="lazy"></figure>
+<h2 id="3-4">③</h2>
+<p>为了安全，可以在个人信息页面，更新个人资料那边，禁用密码登录</p>
+<figure data-type="image" tabindex="12"><img src="https://s3.qklg.net/img/YS9X7uf.png" alt="image-20250126175717060" loading="lazy"></figure>
+<p>感谢以下几位大佬</p>
+<p>谷歌的设置参考了https://coreychiu.com/blogs/google-oauth-setup</p>
+<p>哪吒yaml文件设置参考了https://www.nodeseek.com/post-234604-1</p>
+<p>https://www.74110.net/tutorial/linux/nezha-v1-github-oauth2/</p>
+<p>哪吒wiki https://nezha.wiki/guide/q14.html</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20250121/">
+              <h3 class="post-title">
+                下一篇：claw 日本dns修改
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

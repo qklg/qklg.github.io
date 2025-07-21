@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>nginx搭建文件服务器当图床 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">nginx搭建文件服务器当图床</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-10-14</span>
+            
+          </div>
+          <div class="post-content">
+            <p>基于1panel<br>
+我的探针就是用1panel反代的，顺带在探针鸡上搞一下算了</p>
+<h1 id="1-前置操作">1 前置操作</h1>
+<h2 id="1打开路径">①打开路径</h2>
+<p>应用商店-已安装-openresty-进入安装目录</p>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/yYZKKeT.png" alt="image-20241014143742691" loading="lazy"></figure>
+<p>打开/conf/conf.d</p>
+<p>上面的路径应该是 /opt/1panel/apps/openresty/openresty/conf/conf.d</p>
+<figure data-type="image" tabindex="2"><img src="https://s3.qklg.net/img/NREgLmS.png" alt="" loading="lazy"></figure>
+<h2 id="2配置文件">②配置文件</h2>
+<p>创建pic.conf的文件，内容如下，保存</p>
+<p>29288可以改成你自己的端口</p>
+<p>/var/pic的话就是你图片的文件夹</p>
+<p>autoindex on;  启用自动索引，我是打开的</p>
+<p>autoindex_exact_size   off的话显示文件大小为多少K</p>
+<p>autoindex_localtime  显示本地时间，我是打开的</p>
+<pre><code>server {
+    listen 29288;
+    server_name localhost;
+
+    location / {
+        root /var/pic;
+        index index.html;
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+    }
+}
+</code></pre>
+<p>​</p>
+<h1 id="2-docker文件夹映射">2 docker文件夹映射</h1>
+<h2 id="1创建图片文件夹">①创建图片文件夹</h2>
+<p>创建/var/pic 文件夹  ，创建完记得往里面随便传个图片</p>
+<pre><code>mkdir -p /var/pic 
+</code></pre>
+<h2 id="2容器添加图片文件夹路径">②容器添加图片文件夹路径</h2>
+<p>1panel面板-容器-1panel/openresty   最右边的更多-添加</p>
+<p>挂载/var/pic  ，点击确认</p>
+<figure data-type="image" tabindex="3"><img src="https://s3.qklg.net/img/cM95LhY.png" alt="" loading="lazy"></figure>
+<h1 id="3-反代">3 反代</h1>
+<p>网站-创建网站-反向代理</p>
+<p>主域名填写你图床的域名</p>
+<p>代理地址的话填写  127.0.0.1:29288   29288也换成你自己的端口，确认</p>
+<figure data-type="image" tabindex="4"><img src="https://s3.qklg.net/img/eqA4uRk.png" alt="" loading="lazy"></figure>
+<h1 id="4-https证书">4 https证书</h1>
+<p>https启用下，1panel申请证书看这个 https://1panel.cn/docs/user_manual/websites/certificate_create/</p>
+<h2 id="1-cf-api">① cf api</h2>
+<p>acme账户的话cloudflare的话，现在不是Global API Key了</p>
+<p>https://dash.cloudflare.com/profile/api-tokens</p>
+<p>创建令牌  编辑区域dns，使用此模板</p>
+<p>区域资源，包括 所有域名</p>
+<p>继续以显示摘要-创建令牌</p>
+<p>保存下，token只显示一次</p>
+<figure data-type="image" tabindex="5"><img src="https://s3.qklg.net/img/GoFapeO.png" alt="" loading="lazy"></figure>
+<h2 id="2dns账户">②dns账户</h2>
+<p>1panel面板-网站-证书- dns账户</p>
+<p>创建名字随便去个，我直接就叫cf</p>
+<p>类型cloudflare</p>
+<p>EMAIL 你的cf邮箱</p>
+<p>API Token 刚刚上面创建的token</p>
+<p>点击确认</p>
+<figure data-type="image" tabindex="6"><img src="https://s3.qklg.net/img/C04fpNa.png" alt="" loading="lazy"></figure>
+<h2 id="3-创建acme账户">③  创建acme账户</h2>
+<p>邮箱自己邮箱</p>
+<p>我一般用let's</p>
+<figure data-type="image" tabindex="7"><img src="https://s3.qklg.net/img/cpb7ijQ.png" alt="image-20241014151646265" loading="lazy"></figure>
+<h2 id="4-申请证书">④ 申请证书</h2>
+<p>主域名的话填写  abc.com</p>
+<p>其他域名的话  *.abc.com 申请通配符</p>
+<p>acme账户刚刚创建的acme账户</p>
+<p>验证方式dns验证</p>
+<p>dns账户选择cf</p>
+<p>自动续签勾上</p>
+<p>点击确认就会申请证书了</p>
+<p>就能看到证书申请成功了</p>
+<p>三个月的let's通配符</p>
+<figure data-type="image" tabindex="8"><img src="https://s3.qklg.net/img/K0zwb4M.png" alt="image-20241014151913165" loading="lazy"></figure>
+<p>网站-网站</p>
+<p>选择你的域名-https-启用https</p>
+<p>SSL 选项选择已有证书</p>
+<p>amce账户选择你刚刚的账户-</p>
+<p>证书选择你刚刚的证书</p>
+<p>保存</p>
+<p>这样子你的图片就是 域名/文件名字了</p>
+<p>比方说我把avatar.png  传到/var/pic下的话</p>
+<p>avatar.png的url就是  https://域名/avatar.png</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20241002/">
+              <h3 class="post-title">
+                下一篇：分享下自用的cloudflare 图片缓存设置
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>cloudflare停止颁发 DigiCert的证书 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">cloudflare停止颁发 DigiCert的证书</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-08-27</span>
+            
+          </div>
+          <div class="post-content">
+            <p>来源<a href="https://t.me/xhqcankao/6043">https://t.me/xhqcankao/6043</a></p>
+<p>Cloudflare弃用DigiCert作为所有SSL证书的证书颁发机构<br>
+在 2023 年下半年，Cloudflare 将开始弃用 DigiCert 作为所有 SSL 证书产品(<a href="https://developers.cloudflare.com/ssl/reference/migration-guides/digicert-update/universal-certificates/">通用证书</a>、<a href="https://developers.cloudflare.com/ssl/reference/migration-guides/digicert-update/advanced-certificates/">高级证书</a>、<a href="https://developers.cloudflare.com/ssl/reference/migration-guides/digicert-update/custom-hostname-certificates/">SSL for SaaS</a>)的证书颁发机构。<br>
+这一变化不会影响 Cloudflare 目前正在使用的 DigiCert 颁发的现有证书，但会影响新的证书订单和续订。<br>
+在 DigiCert 停用后，证书将开始使用 Let's Encrypt 或 Google Trust Services 作为颁发 CA。如果您有 CA 偏好，Cloudflare 建议在停用日期之前采取行动，以指定首选 CA 。<br>
+详细说明可以看<br>
+cf文档<a href="https://developers.cloudflare.com/ssl/reference/migration-guides/digicert-update/">https://developers.cloudflare.com/ssl/reference/migration-guides/digicert-update/</a><br>
+cf社区<a href="https://community.cloudflare.com/t/community-update-deprecating-digicert-as-a-certificate-authority-for-all-ssl/547436">https://community.cloudflare.com/t/community-update-deprecating-digicert-as-a-certificate-authority-for-all-ssl/547436</a><br>
+<img src="https://s3.qklg.net/img/202310241252784.png" alt="" loading="lazy"><br>
+总结<br>
+和普通用户没啥关系，就是一年证书没有了<br>
+如果要切证书的话可以看我之前的帖子<a href="https://www.nodeseek.com/post-10862-1">https://www.nodeseek.com/post-10862-1</a></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20230825/">
+              <h3 class="post-title">
+                下一篇：win 10上Netflix开启4K+双杜比
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

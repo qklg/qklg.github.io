@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>最近折腾回家看片，分享点经验 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">最近折腾回家看片，分享点经验</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-09-03</span>
+            
+          </div>
+          <div class="post-content">
+            <p>鉴于移动没公网ipv4，电信联通也在日益收回v4，有兴趣的话可以看下，分享点经验<br>
+1怎么回家，我用的ipv6回家的，本人测试了下基于tcp的openvpn和基于udp的wireguard<br>
+配置很简单的，谷歌搜下就有了，我是在我本地1000下，100Mbps的上行的宽带下测试的，家里的openwrt的n5105的软路由上建的openwrt<br>
+联通流量的ipv6连回家的<br>
+主要问题就是联通流量到移动宽带的ipv6互联太差了，直接ping过去延迟都有三十多ms，就有点离谱<br>
+不说了，直接上图，wg的qos很严重<br>
+openvpn的多线程和单线程测速<br>
+<img src="https://s3.qklg.net/img/202310212350775.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/202310212350294.png" alt="" loading="lazy"><br>
+wiregurad的多线程和单线程测速<br>
+<img src="https://s3.qklg.net/img/202310212351043.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/202310212351432.png" alt="" loading="lazy"></p>
+<p>多次测试差不多，其实也能用，不过延迟确实有点高，这没办法，v6的互联确实很差</p>
+<p>2打洞<br>
+本来买了个宿迁的nat打洞的，结果老板骚操作，没法用了<br>
+玩玩cf tunnel吧<br>
+cf tunnel国内一般分配的美西的服务器<br>
+我分配的是这几个<br>
+<img src="https://s3.qklg.net/img/202310212351744.png" alt="" loading="lazy"><br>
+直连过去，一来一回延迟爆炸<br>
+不过速度倒是还不错<br>
+试了下今天刚下的球2，居然能看，原始码率能看，就是拖进度条有点慢<br>
+<img src="https://s3.qklg.net/img/202310212351478.png" alt="" loading="lazy"></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20230831/">
+              <h3 class="post-title">
+                下一篇：给用emby的推荐几个好用的东西
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

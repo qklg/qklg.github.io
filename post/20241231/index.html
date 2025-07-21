@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>我的哪吒探针v1安全措施 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">我的哪吒探针v1安全措施</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-12-31</span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="1-tlscloudflare">1 tls+cloudflare</h1>
+<h2 id="1一键脚本搭建设置">①一键脚本搭建设置</h2>
+<p>请指定安装命令中预设的 nezha-agent 连接地址(例如 example.com:443)  域名和端口选择你套cf的域名 还有443端口</p>
+<p>是否希望通过 TLS 连接 Agent? (影响安装命令)[y/N]  这边输入y 启用tls</p>
+<h2 id="2反代">②反代</h2>
+<p>cf后台打开解析个ip过来，记得云朵直接打开，避免ip泄露，直接ipv6完事</p>
+<p>cf后台的SSL/TLS选择完全严格</p>
+<p>本地用nginx或者caddy反代下</p>
+<p>参考官方文档   https://nezha.wiki/guide/q3.html</p>
+<p>如果你使用1panel的话，可以参考这个大佬的文章 https://misaka.es/archives/42.html</p>
+<h2 id="3-cloudflare后台启用ws和grpc">③ cloudflare后台启用ws和grpc</h2>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/cSRmFPl.png" alt="image-20241231182328043" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s3.qklg.net/img/wUBjAJm.png" alt="image-20241231182336021" loading="lazy"></figure>
+<h2 id="4-哪吒后台启动tls连接agent">④ 哪吒后台启动tls连接agent</h2>
+<p>Agent对接地址【域名/IP:端口】  域名:443</p>
+<p>后台的Agent 使用 TLS 连接 勾选上</p>
+<figure data-type="image" tabindex="3"><img src="https://s3.qklg.net/img/PizHRBL.png" alt="image-20241231183628238" loading="lazy"></figure>
+<h1 id="2-关闭8008端口的外部访问">2  关闭8008端口的外部访问</h1>
+<p>打开如下哪吒的compose文件，位置在</p>
+<pre><code>/opt/nezha/dashboard/docker-compose.yaml
+</code></pre>
+<p>端口不要暴露在公网上</p>
+<pre><code>    ports:
+      - 127.0.0.1:8008:8008
+</code></pre>
+<h1 id="3-agent上禁用webssh">3 agent上禁用webssh</h1>
+<p>打开</p>
+<pre><code class="language-/opt/nezha/agent/config.yml">/opt/nezha/agent/config.yml
+</code></pre>
+<p>把 disable_command_execute:改成true</p>
+<p>参考哪吒文档 https://nezha.wiki/guide/q7.html</p>
+<h1 id="4-把哪吒后台重定向到首页">4 把哪吒后台重定向到首页</h1>
+<p>如果你和我一样不怎么访问后台的话，直接在cf上用规则把哪吒的后台dashboard给重定向到首页完事了</p>
+<p>或者你自己访问的时候，本地改个host直接访问原站完事了</p>
+<p>cf 后台，规则-重定向规则</p>
+<p>添加如下规则把后台dashboard重定向到首页</p>
+<p>规则名称随便取个</p>
+<p>传入请求匹配选择，通配符模式</p>
+<p>url</p>
+<pre><code>*域名/*dashboard*
+</code></pre>
+<p>目标就是你的首页，状态选择301，保存就完事了</p>
+<p>这样子打开后台的时候就直接跳首页了</p>
+<figure data-type="image" tabindex="4"><img src="https://s3.qklg.net/img/Vo8KgmB.png" alt="下载 (10)" loading="lazy"></figure>
+<p>再把api也重定向下</p>
+<p>请求 URL</p>
+<pre><code>https://域名/api/v1/login
+</code></pre>
+<p>其他如图</p>
+<figure data-type="image" tabindex="5"><img src="https://s3.qklg.net/img/NlezdYN.png" alt="下载" loading="lazy"></figure>
+<p>​</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20241214/">
+              <h3 class="post-title">
+                下一篇：我的年末小鸡总结
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>垃圾佬的2.5G 内网升级 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">垃圾佬的2.5G 内网升级</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-11-26</span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="1-硬件">1 硬件</h1>
+<p>先来说下硬件，东西都是便宜货，螃蟹全家桶</p>
+<p>总成本不超过200块钱</p>
+<p>wifi懒得升级了，就千兆继续用算了</p>
+<h2 id="交换机">交换机</h2>
+<p>某多多的2.5G傻瓜交换机， 螃蟹的RTL 8372N公版方案，四个2.5G网口，还带双万兆SFP光口</p>
+<p>这个价位的四口2.5G的交换机都是这方案的</p>
+<p>六月126买的，现在只要109了，真的白菜价</p>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/qbGXJUo.png" alt="image-20241126225926832" loading="lazy"></figure>
+<h2 id="25g-usb网卡">2.5G usb网卡</h2>
+<p>笔记本上外接的2.5G usb网卡，螃蟹的8156b方案的</p>
+<p>某多多 42块钱买的</p>
+<figure data-type="image" tabindex="2"><img src="https://s3.qklg.net/img/WMV0VMP.png" alt="image-20241126230002684" loading="lazy"></figure>
+<p>自带的驱动很垃圾，记得下载下驱动，自带驱动打完拷文件会蓝屏，螃蟹官网删掉重新打了下驱动就不然会蓝屏</p>
+<p>螃蟹官网下 https://www.realtek.com/Download/List?cate_id=585</p>
+<p>我下的是Win10 Auto Installation Program这个驱动</p>
+<figure data-type="image" tabindex="3"><img src="https://s3.qklg.net/img/kLgy1Rc.png" alt="image-20241126230622485" loading="lazy"></figure>
+<p>直接握手2500Mbps</p>
+<figure data-type="image" tabindex="4"><img src="https://s3.qklg.net/img/MLx05Ox.png" alt="image-20241126230649429" loading="lazy"></figure>
+<h2 id="pcie网卡">pcie网卡</h2>
+<p>某宝28包邮的8125b网卡，插上去我的unraid能免驱就能点亮了</p>
+<figure data-type="image" tabindex="5"><img src="https://s3.qklg.net/img/25Tv1cS.png" alt="image-20241126230315913" loading="lazy"></figure>
+<p>不过论坛上说不稳定，我还是装了下驱动，unraid的应用商店直接就能找到了</p>
+<figure data-type="image" tabindex="6"><img src="https://s3.qklg.net/img/V8zaQAE.png" alt="image-20241126230440139" loading="lazy"></figure>
+<figure data-type="image" tabindex="7"><img src="https://s3.qklg.net/img/DED3pOG.png" alt="image-20241126230800839" loading="lazy"></figure>
+<h1 id="2-速度测试">2 速度测试</h1>
+<h2 id="speedtest-x">speedtest-x</h2>
+<figure data-type="image" tabindex="8"><img src="https://s3.qklg.net/img/26I6uHO.png" alt="image-20241126230839069" loading="lazy"></figure>
+<h2 id="iperf3">iperf3</h2>
+<figure data-type="image" tabindex="9"><img src="https://s3.qklg.net/img/zzXEEz1.png" alt="image-20241126231153677" loading="lazy"></figure>
+<h2 id="拷贝文件">拷贝文件</h2>
+<figure data-type="image" tabindex="10"><img src="https://s3.qklg.net/img/2sg4hfQ.png" alt="image-20241126230925018" loading="lazy"></figure>
+<h2 id="上传文件">上传文件</h2>
+<figure data-type="image" tabindex="11"><img src="https://s3.qklg.net/img/wUUuWTq.png" alt="image-20241126230939214" loading="lazy"></figure>
+<h1 id="3-进阶玩法">3 进阶玩法</h1>
+<p>把游戏装nas上的固态试了下</p>
+<p>下了个黑神话悟空的benchmark，跑了下，感觉好像还行</p>
+<p>也没遇到什么卡顿，不过我这笔记本核显也不玩游戏，无所谓了<img src="https://s3.qklg.net/img/ZvQaana.png" alt="image-20241126231345931" loading="lazy"></p>
+<figure data-type="image" tabindex="12"><img src="https://s3.qklg.net/img/8nURL5z.png" alt="image-20241126231359090" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://s3.qklg.net/img/qpZTKHw.png" alt="image-20241126231405116" loading="lazy"></figure>
+<h1 id="4-总结">4 总结</h1>
+<p>200不到，稍微升级了下，后面准备光猫2.5G的猫100块钱，再买个小米的be6500把我的ax6000替换掉，就完事了</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20241121/">
+              <h3 class="post-title">
+                下一篇：YouTube 官方的rss
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

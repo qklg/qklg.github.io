@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>gridea部署静态博客 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">gridea部署静态博客</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-06-11</span>
+            
+          </div>
+          <div class="post-content">
+            <p>gridea是一个个静态博客的客户端<br>
+相对于hugo和hexo啥的，最大的好处就是简单，不用配置啥复杂的东西<br>
+缺点，就是主题很少<br>
+本文用github仓库部署，可以同时直接用仓库部署到github pages，cf pages，vercel，netlify，国内访问推荐vercel<br>
+由于这几个默认域名被墙，绑个自己的域名</p>
+<p>一   配置github<br>
+①没号的先注册一个<br>
+<a href="https://github.com/">https://github.com/</a><br>
+点击右上角singup注册一个<br>
+②创建github仓库<br>
+<a href="https://github.com/new">https://github.com/new</a><br>
+创建个username.github.io，username就是你用户名，其实也可以不这样子，仓库名随便取，只是没法用github pages而已，不影响部署到cf pages和vercel的<br>
+③申请token<br>
+<a href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a><br>
+<img src="https://s3.qklg.net/img/202310241343036.png" alt="" loading="lazy"><br>
+token时间自己爱要多久，反正我直接永久，repo勾上，token只显示一次，记得保存下</p>
+<p>二 配置gridea<br>
+①下载</p>
+<p><a href="https://github.com/getgridea/gridea/releases">https://github.com/getgridea/gridea/releases</a><br>
+自己根据客户端下载<br>
+支持mac，win，linux三大客户端<br>
+②配置<br>
+<img src="https://s3.qklg.net/img/202310241343860.png" alt="" loading="lazy"><br>
+点击左边的远程，界面长这样子<br>
+选择github pages，<br>
+域名:你要绑的域名<br>
+仓库名称:刚刚建的github的仓库的名字:username.github.io这样子<br>
+分支，现在一般默认是main，自己看下你github仓库<br>
+仓库用户名,你github的user name<br>
+邮箱，你github的邮箱<br>
+令牌，刚刚第三步申请的token<br>
+cname这个不用github page啥的话不用管，要用的话填你要绑的域名</p>
+<p>然后保存，再点下检测远程连接的，显示成功的话就ok了<br>
+③备份<br>
+点击最左边这个按钮，点进去，有个站点源文件路径，那就是gridea的配置文件了，要备份的话直接打包上传到网盘，或者直接整个坚果云或者onedrive啥的同步直接<br>
+<img src="https://s3.qklg.net/img/202310241343543.png" alt="" loading="lazy"><br>
+④写文章<br>
+支持markdown，点击左边的文章，自己写<br>
+⑤点击左下角同步，同步到你github<br>
+如果没法同步的话，设置里又http代理设置，自己填写</p>
+<p>三 部署到各家平台<br>
+1github pages<br>
+找到你username.github.io的仓库，点击setting，选择pages启用，可以绑定自己的域名，不展开讲了，自己谷歌搜下</p>
+<p>2部署到cf pages（推荐）<br>
+①注册cf账户<br>
+<a href="https://cloudflare.com/">https://cloudflare.com/</a> 打开网站，点击注册<br>
+②创建pages<br>
+点击workes and pages<br>
+<img src="https://s3.qklg.net/img/202310241343855.png" alt="" loading="lazy"><br>
+创建应用程序，选择pages<br>
+<img src="https://s3.qklg.net/img/202310241344413.png" alt="" loading="lazy"><br>
+连接到git<br>
+<img src="https://s3.qklg.net/img/202310241344348.png" alt="" loading="lazy"><br>
+连接到github账户，选择你刚刚创建的那个github仓库<br>
+<img src="https://s3.qklg.net/img/202310241344500.png" alt="" loading="lazy"><br>
+然后点开始设置<br>
+<img src="https://s3.qklg.net/img/202310241344990.png" alt="" loading="lazy"><br>
+保存并部署<br>
+<img src="https://s3.qklg.net/img/202310241344798.png" alt="" loading="lazy"><br>
+设置自定义域，默认的pages.dev被墙了，输入你在gridea里填的域名<br>
+<img src="https://s3.qklg.net/img/202310241344995.png" alt="" loading="lazy"><br>
+然后点激活域再等会就ok了<br>
+浏览器打开你的域名就可以访问了</p>
+<p>3部署到vercel<br>
+①<a href="https://vercel.com/">https://vercel.com/</a>点击右上角singup，再点击用github登录<br>
+②点击add new project,选择你的github仓库，再点击import<br>
+<img src="https://s3.qklg.net/img/202310241345297.png" alt="" loading="lazy"><br>
+然后点击deploy直接部署<br>
+<img src="https://s3.qklg.net/img/202310241345082.png" alt="" loading="lazy"><br>
+然后就部署好了<br>
+③设置自定义域，默认的vercel.app被墙了，输入你在gridea里填的域名<br>
+点击setting，选择左边的domains<br>
+在cloudflare或者别的域名解析商那里添加一个A记录到76.76.21.21<br>
+或者cname到cname.vercel-dns.com<br>
+都是可以的，具体怎么操作看vercel的文档<br>
+<a href="https://vercel.com/docs/concepts/projects/domains/working-with-nameservers">https://vercel.com/docs/concepts/projects/domains/working-with-nameservers</a><br>
+vercel的亚马逊aga到国内速度明显比其他的快，推荐这个部署，但是免费只有100G的流量，不过个人博客也够用了<br>
+4部署到netlify<br>
+①<a href="https://www.netlify.com/">https://www.netlify.com/</a>,点击右上角singup，选择github登录<br>
+②点击add new site<br>
+<img src="https://s3.qklg.net/img/202310241345834.png" alt="" loading="lazy"><br>
+选择import an existing project<br>
+<img src="https://s3.qklg.net/img/202310241345347.png" alt="" loading="lazy"><br>
+选择你的github仓库，再点deploy site部署<br>
+<img src="https://s3.qklg.net/img/202310241345481.png" alt="" loading="lazy"></p>
+<p>③设置自定义域，默认的netlify.app被墙了，输入你在gridea里填的域名<br>
+点击domain setting，然后把你的域名cname过去就行了，具体怎么弄看netlify的文档<br>
+<a href="https://docs.netlify.com/domains-https/custom-domains/">https://docs.netlify.com/domains-https/custom-domains/</a></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20230606/">
+              <h3 class="post-title">
+                下一篇：ucloud 台北测评
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

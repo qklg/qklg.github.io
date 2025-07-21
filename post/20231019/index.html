@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>unraid装哪吒探针 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">unraid装哪吒探针</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-10-19</span>
+            
+          </div>
+          <div class="post-content">
+            <p>1下载哪吒探针的agent<br>
+选择你的客户端下载，unraid的话一般都是linux-amd64<br>
+<a href="https://github.com/nezhahq/agent/releases">https://github.com/nezhahq/agent/releases</a><br>
+<img src="https://s3.qklg.net/img/202310212319032.png" alt="" loading="lazy"></p>
+<p>解压缩，将nezha-agent，如果你开smb的话直接用文件管理传上去，或者winscp或者别的什么传到你的nas的任意文件夹下<br>
+我是开的smb，我随手放在第二块硬盘下,路径是/mnt/disk2/download/temp，这个路径随便</p>
+<p>2unraid上应用搜索	User Scripts安装，这个可以执行定时的bash脚本，有点类似于systemctl<br>
+<img src="https://s3.qklg.net/img/202310212319340.png" alt="" loading="lazy"></p>
+<p>插件，这个进去<br>
+<img src="https://s3.qklg.net/img/202310212322032.png" alt="" loading="lazy"></p>
+<p>点击左下角的add new script<br>
+<img src="https://s3.qklg.net/img/202310212322290.png" alt="" loading="lazy"><br>
+名字随便取一个，点击ok保存<br>
+<img src="https://s3.qklg.net/img/202310212323164.png" alt="" loading="lazy"><br>
+用winscp，连接unraid，打开</p>
+<pre><code>/boot/config/plugins/user.scripts/scripts/tanzhen
+</code></pre>
+<p>这个路径</p>
+<p>双击script<br>
+编辑脚本</p>
+<pre><code>#!/bin/bash
+cd /mnt/disk2/download/temp
+chmod +x nezha-agent
+./nezha-agent -s 没套cdn的域名:面板rpc端口 -p agnet key
+</code></pre>
+<p>cd 后面的/mnt/disk2/download/temp可以换成上面你自己nezha-agent的文件路径</p>
+<p>第四行的参数除了这些还可以加，可以参考这个<br>
+一般这些就足够了<br>
+<img src="https://s3.qklg.net/img/202310241237565.png" alt="" loading="lazy"></p>
+<p>然后保存<br>
+回到unraid的面板上<br>
+点击run in backgronud 在后台运行<br>
+右边设置成at first array start only开机自启<br>
+<img src="https://s3.qklg.net/img/202310241232422.png" alt="" loading="lazy"><br>
+点下apply应用，done退出就完事了</p>
+<p>参考教程<br>
+哪吒文档中在群晖中安装<br>
+<a href="https://nezha.wiki/guide/agent.html#%E5%9C%A8-%E7%BE%A4%E6%99%96dsm-%E4%B8%AD%E5%AE%89%E8%A3%85-agent">https://nezha.wiki/guide/agent.html#在-群晖dsm-中安装-agent</a></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20231014/">
+              <h3 class="post-title">
+                下一篇：cc新ip，来波测试
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

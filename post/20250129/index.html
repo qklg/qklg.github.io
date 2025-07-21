@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>拿vps跑deepseek r1 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">拿vps跑deepseek r1</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2025-01-29</span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="前言">前言</h1>
+<p>前排提示:ollama很吃性能的，别拿你的生产力的小鸡跑<br>
+建议内存大点的鸡上跑</p>
+<h1 id="1-docker安装openwebuiollama">1 docker安装openwebui+ollama</h1>
+<p>https://github.com/open-webui/open-webui<br>
+For CPU Only: If you're not using a GPU, use this command instead:</p>
+<pre><code>docker run -d -p 3000:8080 -v ollama:/root/.ollama -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:ollama
+</code></pre>
+<h1 id="2-访问及设置">2 访问及设置</h1>
+<h2 id="1-访问">① 访问</h2>
+<p>ip:3000端口打开即可，有条件的话nginx反代下</p>
+<h2 id="2-设置用户名密码邮箱">② 设置用户名密码邮箱</h2>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/YYnrsjR.png" alt="image-20250129170712679" loading="lazy"></figure>
+<p>##③ 切换语言</p>
+<p>点击右上角头像下面的settings-general，选择中文，save保存</p>
+<figure data-type="image" tabindex="2"><img src="https://s3.qklg.net/img/0GbOotp.png" alt="image-20250129170809543" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://s3.qklg.net/img/0fPh5qs.png" alt="image-20250129170824068" loading="lazy"></figure>
+<h2 id="4-添加模型">④ 添加模型</h2>
+<p>左上角选择一个模型的话可以输入你想要的模型，</p>
+<p>我们选择7b的，输入 deepseek-r1:7b,从ollama拉取</p>
+<figure data-type="image" tabindex="4"><img src="https://s3.qklg.net/img/nOPOWHY.png" alt="image-20250129171023372" loading="lazy"></figure>
+<p>下载deepseek的7b模型，小鸡的性能跑个7b还是可以的<br>
+如果没法跑的话，可以跑1.5b的  deepseek-r1:1.5b</p>
+<p>其他的模型的话这边<br>
+https://ollama.com/library/deepseek-r1</p>
+<h1 id="3-闲言碎语">3 闲言碎语</h1>
+<p>本人用签名探针上的家里云。配置为5600+32G内存跑的</p>
+<p>占用的话大概cpu在50%左右，内存吃到10G<br>
+我的cpu的话跑分gb5单核1675多，多核8934，你可以参考下自己跑着玩</p>
+<figure data-type="image" tabindex="5"><img src="https://s3.qklg.net/img/cpzRGgs.png" alt="image-20241110200910735" loading="lazy"></figure>
+<p>7.5b的效果其实不怎么样，你们跑了就知道了</p>
+<figure data-type="image" tabindex="6"><img src="https://s3.qklg.net/img/IsaW10B.png" alt="" loading="lazy"></figure>
+<p>其实还不如自己直接调用api来的合适</p>
+<p>跑api的话可以参考我这个帖子</p>
+<p>https://qklg.net/post/20250127/</p>
+<p>有条件上显卡跑，而且显存至少16G的，这种纯cpu跑的是玩具<br>
+隔壁老哥拿12400跑72b的https://linux.do/t/topic/397701/20<br>
+半小时才能回答一次，隔壁老哥cpu当一回时代先锋</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20250127/">
+              <h3 class="post-title">
+                下一篇：用nextchat调用deepseek的api
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

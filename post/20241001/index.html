@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>python3搭建http服务器拿来当图床 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">python3搭建http服务器拿来当图床</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-10-01</span>
+            
+          </div>
+          <div class="post-content">
+            <p>本文基于debian</p>
+<p>1 安装python3和python3-pip</p>
+<pre><code>sudo apt update
+sudo apt install python3
+sudo apt install python3-pip
+</code></pre>
+<p>检查下是否安装成功</p>
+<pre><code>python3 --version
+pip3 --version
+</code></pre>
+<p>2</p>
+<pre><code>python3 -m http.server 8090
+</code></pre>
+<p>这样子 ip:8090就可以访问了,8090可以换成任意端口</p>
+<p>不过这样子的话无法长期使用，所以创建个Systemd ，同时搞个文件夹专门放图片</p>
+<p>先创建文件夹 我是直接在root下创建的，记得文件夹下面随便放个文件任意，不然会遇到无法访问情况</p>
+<pre><code>sudo mkdir -p /root/pic
+</code></pre>
+<p>在 /etc/systemd/system 下创建一个叫python-http.service的文件</p>
+<p>里面填写图下内容，我用chatgpt写的，文件的话我用winscp编辑上传的，你用nano也行，保存退出</p>
+<pre><code>[Unit]
+Description=Python HTTP Server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -m http.server 8090
+WorkingDirectory=/root/pic
+User=root
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>systemd就下面那么玩呗，分别是 重新加载，启动服务，开机自启</p>
+<pre><code>sudo systemctl daemon-reload
+sudo systemctl start python-http
+sudo systemctl enable python-http
+</code></pre>
+<p>检查下状态</p>
+<pre><code>sudo systemctl status python-http
+</code></pre>
+<p>搞完么，拿nginx，caddy或者cloudflare tunnel什么的反代下，就完事了<br>
+文件直接用winscp传上去，地址的话就是  反代域名/文件名字</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20240925/">
+              <h3 class="post-title">
+                下一篇：cloudflare 生日周新功能总结
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

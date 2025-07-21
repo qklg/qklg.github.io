@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>哪吒v0版本面板安装，agent安装 ，文档 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">哪吒v0版本面板安装，agent安装 ，文档</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-12-03</span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="1-面板部分">1 面板部分</h1>
+<h2 id="1-v0面板安装脚本">① v0面板安装脚本</h2>
+<pre><code>curl -L https://raw.githubusercontent.com/nezhahq/scripts/refs/heads/v0/install.sh -o nezha.sh &amp;&amp; chmod +x nezha.sh &amp;&amp; sudo ./nezha.sh
+</code></pre>
+<h2 id="2-v0面板禁用更新">② v0面板禁用更新</h2>
+<p>打开/opt/nezha/dashboard/docker-compose.yaml</p>
+<p>讲docker固定到:v0.20.13版本</p>
+<pre><code>services:
+  dashboard:
+    image: ghcr.io/naiba/nezha-dashboard:v0.20.13
+    restart: always
+</code></pre>
+<p>感谢 https://www.nodeseek.com/post-210009-1 老哥</p>
+<h1 id="2-agent部分">2 agent部分</h1>
+<p>agent安装脚本</p>
+<p>把后台复制出来的 main改成v0就可以了</p>
+<p>记得加入--disable-force-update 禁用更新</p>
+<p>我同时喜欢加入 --disable-command-execute 禁止web ssh</p>
+<pre><code>curl -L https://raw.githubusercontent.com/nezhahq/scripts/v0/install.sh -o nezha.sh &amp;&amp; chmod +x nezha.sh &amp;&amp; ./nezha.sh install_agent 域名 端口 密钥 --tls --disable-force-update --disable-command-execute
+</code></pre>
+<p>感谢  https://www.nodeseek.com/post-209183-1#7 老哥</p>
+<h1 id="3-v0文档">3 v0文档</h1>
+<p>论坛老哥整的v0文档 https://nezha-v0.mereith.dev/</p>
+<p>感谢https://www.nodeseek.com/post-209098-1 老哥</p>
+<p>github仓库  https://github.com/nezhahq/nezhahq.github.io/tree/v0<br>
+互联网档案馆 https://web.archive.org/web/20240929125721/https://nezha.wiki/guide/dashboard.html</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20241126/">
+              <h3 class="post-title">
+                下一篇：垃圾佬的2.5G 内网升级
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

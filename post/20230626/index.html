@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>那些免费证书 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">那些免费证书</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-06-26</span>
+            
+          </div>
+          <div class="post-content">
+            <p>1   一年的单域名的证书<br>
+都是国内云厂商提供的，都是要实名的<br>
+第一个是华为云和阿里云的encryption everywhere</p>
+<p>华为云的怎么申请看这里<br>
+<a href="https://www.huaweicloud.com/zhishi/sslfree.html">https://www.huaweicloud.com/zhishi/sslfree.html</a><br>
+阿里云的<a href="https://developer.aliyun.com/article/875508">https://developer.aliyun.com/article/875508</a><br>
+trust asia的，腾讯，宝塔，ucloud,青云，好像还有几个，<br>
+但是记得，同一主域最多只能申请20张<br>
+腾讯<a href="https://console.cloud.tencent.com/ssl">https://console.cloud.tencent.com/ssl</a>,有个免费证书，点进去<br>
+宝塔直接在面板里就有<br>
+ucloud <a href="https://console.ucloud.cn/ussl/Free">https://console.ucloud.cn/ussl/Free</a><br>
+青云<a href="https://www.qingcloud.com/pricing#/SSLCertificate">https://www.qingcloud.com/pricing#/SSLCertificate</a></p>
+<p>2 acme.sh申请的三个月的通配符证书<br>
+Let's Encrypt ,zerossl和谷歌的三个月的</p>
+<p>系统是debian<br>
+①安装acme.sh</p>
+<pre><code>curl https://get.acme.sh | sh
+</code></pre>
+<p>如果报错，安装socat</p>
+<pre><code>apt install socat -y
+</code></pre>
+<p>确认acme.sh已经安装，显示acme.sh版本,如果没反应的话重启下</p>
+<pre><code>acme.sh -v
+</code></pre>
+<p>②切换默认ca<br>
+切换成Let's encrypt</p>
+<pre><code>acme.sh --set-default-ca --server letsencrypt
+</code></pre>
+<p>切换成gcp的</p>
+<pre><code>acme.sh --set-default-ca --server google
+</code></pre>
+<p>切换成zerossl</p>
+<pre><code>acme.sh --set-default-ca  --server zerossl
+</code></pre>
+<p>zerossl要邮箱的，<a href="https://app.zerossl.com/signup">https://app.zerossl.com/signup</a>,在这边注册个账户,然后输入下面的命令就行</p>
+<pre><code>acme.sh --register-account -m my@example.com
+</code></pre>
+<p>②.5 如果用gcp的证书的话申请gcp证书的api<br>
+<a href="https://console.cloud.google.com/">https://console.cloud.google.com/</a></p>
+<p>cloudshell</p>
+<pre><code>gcloud beta publicca external-account-keys create
+</code></pre>
+<pre><code>acme.sh --register-account --server google -m xxx@gmail.com 
+--eab-hmac-key 申请到b64MacKey
+--eab-kid 申请到的keyId]
+</code></pre>
+<p>③设置api<br>
+腾讯云dnspod api获取地址<br>
+<a href="https://console.dnspod.cn/account/token/apikey">https://console.dnspod.cn/account/token/apikey</a></p>
+<pre><code>export DP_Id=&quot;123456&quot;
+export DP_Key=&quot;abcdefg&quot;
+</code></pre>
+<p>阿里云dns api<br>
+<a href="https://usercenter.console.aliyun.com/#/manage/ak">https://usercenter.console.aliyun.com/#/manage/ak</a></p>
+<pre><code>export Ali_Key=&quot;AccessKeyId&quot;
+export Ali_Secret=&quot;AccessKeySecret&quot;
+</code></pre>
+<p>cloudflare的api的话<br>
+<a href="https://dash.cloudflare.com/profile/api-tokens">https://dash.cloudflare.com/profile/api-tokens</a><br>
+申请Global API Key</p>
+<pre><code>export CF_Key=&quot;Global API Key&quot; 
+export CF_Email=&quot;你cloudflare邮箱&quot;
+</code></pre>
+<p>④申请证书</p>
+<p>腾讯云dnspod</p>
+<pre><code>acme.sh --issue --dns dns_dp -d xxx.com -d *.xxx.com
+</code></pre>
+<p>阿里云dns</p>
+<pre><code>acme.sh --issue --dns dns_ali -d xxx.com -d *.xxx.com
+</code></pre>
+<p>cloudflare</p>
+<pre><code>acme.sh --issue --dns dns_cf -d *.xxx.com -d xxx.com
+</code></pre>
+<p>还有半年的bypass证书，不过是单域名的，还不如阿里腾讯啥的一年的，我就没申请了<br>
+不想敲命令的话，可以试下这个,在线申请<br>
+<a href="https://letsencrypt.osfipin.com/">https://letsencrypt.osfipin.com/</a><br>
+怎么玩的话看imgurl图床作者的博客<br>
+<a href="https://blog.xiaoz.org/archives/18775">https://blog.xiaoz.org/archives/18775</a><br>
+3cf的那个15年的是自签证书，要配合他家cdn用的，现在所有浏览器，谷歌chrome，微软edge，苹果safari，火狐，还有那种套壳的，里面的证书通通最多就13个月<br>
+两年的证书已经成历史了<br>
+这15年时给你回源用的，得配合cf的cdn，点亮小云朵才行</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20230620/">
+              <h3 class="post-title">
+                下一篇：ihostart罗马尼亚灵车
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

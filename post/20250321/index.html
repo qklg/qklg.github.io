@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>cloudflare新工具，文件转markdown | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">cloudflare新工具，文件转markdown</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2025-03-21</span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="1-官网文档链接">1 官网文档链接</h1>
+<p>https://developers.cloudflare.com/workers-ai/markdown-conversion/</p>
+<h1 id="2-支持格式">2 支持格式</h1>
+<pre><code>.pdf, .jpeg, .jpg, .png, .webp, .svg, .html, .xml, .xlsx, .xlsm, .xlsb, .xls, .et, .ods, .csv, .numbers
+</code></pre>
+<p>主要就几大类，一个pdf，图片，office文档，网页啥的</p>
+<p>还有图片的话是要钱的，没图片的话不需要钱的</p>
+<h1 id="3-获取rest-api令牌">3 获取REST API令牌</h1>
+<p>调用的话直接用REST API就可以了</p>
+<p>获取办法的话参考官网 https://developers.cloudflare.com/workers-ai/get-started/rest-api/</p>
+<h2 id="1打开面板">①打开面板</h2>
+<p>https://dash.cloudflare.com/</p>
+<h2 id="2-ai然后打开workers-ai">② ai然后打开workers ai</h2>
+<p>使用rest api</p>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/kQSGy2Y.png" alt="" loading="lazy"></figure>
+<h2 id="3-创建-workers-ai-api令牌">③ 创建 workers ai api令牌</h2>
+<figure data-type="image" tabindex="2"><img src="https://s3.qklg.net/img/rr8V3UW.png" alt="" loading="lazy"></figure>
+<p>点击创建api令牌，令牌只会显示一次，记得保存下</p>
+<figure data-type="image" tabindex="3"><img src="https://s3.qklg.net/img/bhYCAKK.png" alt="" loading="lazy"></figure>
+<h1 id="4-调用">4 调用</h1>
+<p>curl直接就ok了</p>
+<p>{ACCOUNT_ID}的话再3③那里的账户id就是了</p>
+<p>{API_TOKEN}的话就是你上面获取的rest api令牌</p>
+<p>文档里面的，我稍微优化了下，直接导出到md文件</p>
+<p>root/pc.xlsx 自己换下文件的位置</p>
+<pre><code>curl https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/ai/tomarkdown \
+  -H 'Authorization: Bearer {API_TOKEN}' \
+  -F files=@&quot;//root/pc.xlsx&quot; | jq -r '.result[0].data' &gt; output.md
+</code></pre>
+<h1 id="5-效果对比">5 效果对比</h1>
+<p>网上随便找的装机配置单</p>
+<p>原版excel</p>
+<figure data-type="image" tabindex="4"><img src="https://s3.qklg.net/img/9EmGoNP.png" alt="" loading="lazy"></figure>
+<p>markdown转换完的，还行</p>
+<figure data-type="image" tabindex="5"><img src="https://s3.qklg.net/img/epzWmg1.png" alt="" loading="lazy"></figure>
+<h1 id="6-在线转换">6 在线转换</h1>
+<p>左转隔壁mjj的，自己搞个worker玩玩，我懒得搞了</p>
+<p>https://linux.do/t/topic/505896/16</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20250310/">
+              <h3 class="post-title">
+                下一篇：用api切换cf的证书
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

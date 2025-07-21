@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>自用脚本备份 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">自用脚本备份</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2025-02-05</span>
+            
+          </div>
+          <div class="post-content">
+            <p>更新</p>
+<pre><code>apt update &amp;&amp; apt upgrade -y
+</code></pre>
+<p>安装curl wget sudo unzip</p>
+<pre><code>apt install curl wget sudo unzip -y
+</code></pre>
+<p>2G swarp</p>
+<pre><code>sudo bash -c &quot;fallocate -l 2G /swapfile &amp;&amp; chmod 600 /swapfile &amp;&amp; mkswap /swapfile &amp;&amp; swapon /swapfile &amp;&amp; echo '/swapfile none swap sw 0 0' &gt;&gt; /etc/fstab&quot;
+</code></pre>
+<p>bbr+fq</p>
+<pre><code>echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf
+echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf
+sysctl -p
+sysctl net.ipv4.tcp_available_congestion_control
+lsmod | grep bbr
+</code></pre>
+<p>ipv4优先</p>
+<pre><code>sed -i 's/#precedence ::ffff:0:0\/96  100/precedence ::ffff:0:0\/96  100/' /etc/gai.conf
+</code></pre>
+<p>nexttrace</p>
+<pre><code>curl nxtrace.org/nt | bash
+</code></pre>
+<p>江苏三网回程</p>
+<pre><code>nexttrace 218.2.2.2
+nexttrace 112.87.86.194
+nexttrace 112.4.0.55
+</code></pre>
+<p>curl ip.sb</p>
+<pre><code>curl ip.sb
+</code></pre>
+<p>ipv4 geo</p>
+<pre><code>curl ipv4.ping0.cc/geo
+</code></pre>
+<p>ipv6 geo</p>
+<pre><code>curl ipv6.ping0.cc/geo
+</code></pre>
+<p>ipv6 ping</p>
+<pre><code>ping 2001:4860:4860::8888
+</code></pre>
+<p>流媒体检测</p>
+<pre><code>bash &lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
+</code></pre>
+<p>ip质量检测</p>
+<pre><code>bash &lt;(curl -sL IP.Check.Place)
+</code></pre>
+<p>超售检测</p>
+<pre><code>wget --no-check-certificate -O memoryCheck.sh https://raw.githubusercontent.com/uselibrary/memoryCheck/main/memoryCheck.sh &amp;&amp; chmod +x memoryCheck.sh &amp;&amp; bash memoryCheck.sh
+</code></pre>
+<p>硬盘测试</p>
+<pre><code>dd bs=64k count=4k if=/dev/zero of=test oflag=dsync
+</code></pre>
+<p>三网测速</p>
+<pre><code>bash &lt;(wget -qO- bash.spiritlhl.net/ecs-net)
+</code></pre>
+<p>bench.sh</p>
+<pre><code>curl -Lso- bench.sh | bash
+</code></pre>
+<p>yabs</p>
+<pre><code>curl -sL yabs.sh | bash
+</code></pre>
+<p>geekbench5</p>
+<pre><code>curl -sL yabs.sh|bash -s -- -if -fdi5
+</code></pre>
+<p>八合一脚本</p>
+<pre><code>wget -P /root -N --no-check-certificate &quot;https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh&quot; &amp;&amp; chmod 700 /root/install.sh &amp;&amp; /root/install.sh
+</code></pre>
+<p>xray官方脚本</p>
+<pre><code>bash -c &quot;$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)&quot; @ install
+</code></pre>
+<p>singbox官方脚本</p>
+<pre><code>bash &lt;(curl -fsSL https://sing-box.app/deb-install.sh)
+</code></pre>
+<p>warp</p>
+<p>warp-go</p>
+<pre><code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/warp-go.sh &amp;&amp; bash warp-go.sh
+</code></pre>
+<p>wgcf</p>
+<pre><code>wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh &amp;&amp; bash menu.sh
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20250129/">
+              <h3 class="post-title">
+                下一篇：拿vps跑deepseek r1
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

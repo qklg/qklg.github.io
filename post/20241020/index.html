@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>openwrt用cron定时任务装哪吒探针 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">openwrt用cron定时任务装哪吒探针</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-10-20</span>
+            
+          </div>
+          <div class="post-content">
+            <p>前言 :本文使用定时任务的方式装哪吒探针，如果你觉得麻烦的话可以用ipk的方式创建哪吒探针<br>
+项目地址<a href="https://github.com/Erope/openwrt_nezha/releases/">https://github.com/Erope/openwrt_nezha/releases/</a></p>
+<p>下载后上传安装ipk包，然后设置就可以了</p>
+<h1 id="1-下载哪吒探针的agent">1 下载哪吒探针的agent</h1>
+<p>选择你的客户端下载，我的是n5105的软路由所以选择的是linux-amd64</p>
+<p><a href="https://github.com/nezhahq/agent/releases">https://github.com/nezhahq/agent/releases</a></p>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/KySh8sF.png" alt="image-20241020121816437" loading="lazy"></figure>
+<p>将nezha-agnet   用winscp或其他工具上传用到/opt/nezha/agent/  文件夹下，我喜欢和debian一样的</p>
+<p>没有就用下面命令创建个</p>
+<pre><code>mkdir -p /opt/nezha/agent/  
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://s3.qklg.net/img/wtKhGuw.png" alt="image-20241020122027653" loading="lazy"></figure>
+<h1 id="2-创建nezhash文件">2   创建nezha.sh文件</h1>
+<p>在/opt/nezha 文件夹下创建 nezha.sh文件,里面填入如下</p>
+<p>agenntkey 换成你自己的   --disable-command-execute的话禁用webssh</p>
+<pre><code>#!/bin/bash
+cd /opt/nezha/agent
+chmod +x nezha-agent
+./nezha-agent -s 没套cdn的域名:面板rpc端口 -p agentkey --disable-command-execute
+</code></pre>
+<h1 id="3-启动任务">3  启动任务</h1>
+<p>打开openwrt的管理后台  系统-计划任务</p>
+<figure data-type="image" tabindex="3"><img src="https://s3.qklg.net/img/a4Pn5XA.png" alt="image-20241020122540873" loading="lazy"></figure>
+<p>里面加入如下,填入如下文本，右下角提交</p>
+<pre><code>* * * * * /bin/bash /opt/nezha/agent/nezha.sh
+</code></pre>
+<p>登录openwrt的ssh，重启cron</p>
+<pre><code>/etc/init.d/cron restart
+</code></pre>
+<p>如果启动成功的话就可以在后台看到哪吒了，如果未成功可以查看cron日志</p>
+<pre><code>logread | grep cron
+</code></pre>
+<h1 id="4-编辑nezha-agent">4 编辑nezha-agent</h1>
+<p>在ssh中</p>
+<pre><code>/opt/nezha/agent/nezha-agent edit
+</code></pre>
+<p>网卡选择eth0，我的eth0是wan口，方向键的上下移动，空格选择，然后回车</p>
+<figure data-type="image" tabindex="4"><img src="https://s3.qklg.net/img/ozzvPNA.png" alt="image-20241020123330838" loading="lazy"></figure>
+<p>接着是硬盘，根据自己的分区选择</p>
+<p>自定义dns的话我没自定义，直接空格回车</p>
+<p>是否启用gpu监控，输入y 回车</p>
+<p>是否启动温度监控，输入y回车</p>
+<p>是否开启调试模式，输入N回车</p>
+<figure data-type="image" tabindex="5"><img src="https://s3.qklg.net/img/LOJnkl7.png" alt="image-20241020123520987" loading="lazy"></figure>
+<p>重启agent就可以生效了</p>
+<p>成功效果如图</p>
+<figure data-type="image" tabindex="6"><img src="https://s3.qklg.net/img/P1XVL4b.png" alt="image-20241020123644431" loading="lazy"></figure>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20241014/">
+              <h3 class="post-title">
+                下一篇：nginx搭建文件服务器当图床
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>用api把cloudflare的证书换成自家一年的 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">用api把cloudflare的证书换成自家一年的</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-06-28</span>
+            
+          </div>
+          <div class="post-content">
+            <p>cloudflare目前的话提供了四种证书，一种是自家一年的，还有let‘s的，谷歌的，都是三个月的，还有setcigo的三个月的，但是怎么没见到，之前的话一直都是一年的证书，现在基本上都是三个月的，主要是let‘s和谷歌的两种，nodeseek就是谷歌的三个月的，其实我们可以利用api来切换这，参考cloudflare的文档里的[certificate authority]https://developers.cloudflare.com/ssl/reference/certificate-authorities/)<br>
+来切换四种证书，其实也可以完全不管，因为都是自动签的，let's的证书的话可能会导致部分旧平台，比方说旧安卓手机和win7的电脑兼容性不好，还有国产的360浏览器不把它添加进信任列表,所以切不切其实看你自己了<br>
+下面介绍两种办法来切证书，其实都是发起api来的，本质上一样的，只是第一种稍微简单点<br>
+首先都要申请global api key<br>
+<a href="https://dash.cloudflare.com/profile/api-tokens">https://dash.cloudflare.com/profile/api-tokens</a><br>
+<img src="https://s3.qklg.net/img/202310241331518.png" alt="" loading="lazy"><br>
+第一种方法<br>
+dnsfalre，这个是我之前用来修改以前cfp的cname接入的域名时候发现的，具体怎么玩可以参考这个大佬的博客<a href="https://luotianyi.vc/6415.html">https://luotianyi.vc/6415.html</a>,可以自己部署，我们这次只是用来修改证书<br>
+作者github的项目地址<a href="https://github.com/5aaee9/Dnsflare">https://github.com/5aaee9/Dnsflare</a><br>
+我们直接用作者的演示站就行了，是本地浏览器发起api请求的<br>
+打开<a href="https://dnsflare-indexyz.vercel.app/">https://dnsflare-indexyz.vercel.app/</a>，<br>
+输入你的邮箱和global api key<br>
+点击提交登录<br>
+<img src="https://s3.qklg.net/img/202310241332052.png" alt="" loading="lazy"><br>
+选择你的域名<br>
+点击下面的证书供应商，就可以切换你的域名的证书了，选择digicert就是cf自家的一年的了，let's和谷歌的话就是三个月的，有cf自家当然选cf自家的了<br>
+<img src="https://s3.qklg.net/img/202310241332740.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/202310241332278.png" alt="" loading="lazy"><br>
+这时候我们去cf的后台，就可以看到cf的自家的一年证书已经签发了<br>
+<img src="https://s3.qklg.net/img/202310241332599.png" alt="" loading="lazy"></p>
+<p>第二种，<br>
+打开cf你的域名，域名那边有个域名区域id，要用的<br>
+<img src="https://s3.qklg.net/img/202310241332273.png" alt="" loading="lazy"><br>
+然后在小鸡的ssh上打下面的命令</p>
+<pre><code>curl -sX PATCH &quot;https://api.cloudflare.com/client/v4/zones/你的域名区域id/ssl/universal/settings&quot; -H &quot;X-Auth-Email:你的邮箱&quot; -H &quot;X-Auth-Key:你的global api key&quot; -H &quot;Content-Type: application/json&quot; --data &quot;{\&quot;certificate_authority\&quot;:\&quot;digicert\&quot;}&quot;
+</code></pre>
+<p>换成谷歌的话就把digicert换成google</p>
+<pre><code>curl -sX PATCH &quot;https://api.cloudflare.com/client/v4/zones/你的域名区域id/ssl/universal/settings&quot; -H &quot;X-Auth-Email:你的邮箱&quot; -H &quot;X-Auth-Key:你的global api key&quot; -H &quot;Content-Type: application/json&quot; --data &quot;{\&quot;certificate_authority\&quot;:\&quot;google\&quot;}&quot;
+</code></pre>
+<p>换成let's的digicert 为 lets_encrypt</p>
+<pre><code>curl -sX PATCH &quot;https://api.cloudflare.com/client/v4/zones/你的域名区域id/ssl/universal/settings&quot; -H &quot;X-Auth-Email:你的邮箱&quot; -H &quot;X-Auth-Key: 你的global api key&quot; -H &quot;Content-Type: application/json&quot; --data &quot;{\&quot;certificate_authority\&quot;:\&quot;lets_encrypt\&quot;}&quot;
+</code></pre>
+<p>如果出现以下结果的话，就是成功了</p>
+<pre><code>{&quot;result&quot;:{&quot;enabled&quot;:true,&quot;certificate_authority&quot;:&quot;lets_encrypt&quot;},&quot;success&quot;:true,&quot;errors&quot;:[],&quot;messages&quot;
+</code></pre>
+<p>如果没反应的话，打开cf的控制台，禁用通用ssl，然后再打命令，然后再启用，反复多试几次就行了<br>
+<img src="https://s3.qklg.net/img/202310241332372.png" alt="" loading="lazy"></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20230626/">
+              <h3 class="post-title">
+                下一篇：那些免费证书
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

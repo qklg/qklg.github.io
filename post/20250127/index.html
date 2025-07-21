@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>用nextchat调用deepseek的api | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">用nextchat调用deepseek的api</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2025-01-27</span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="1-docker搭建">1 docker搭建</h1>
+<p>compose文件如下<br>
+OPENAI_API_KEY的话替换成你deepseek的api key，<br>
+DeepSeek API 使用与 OpenAI 兼容的 API 格式<br>
+deepseek的api生成地址 https://platform.deepseek.com/api_keys<br>
+参考deepseek的文档  https://api-docs.deepseek.com/zh-cn/</p>
+<p>code访问密码，面板最好搞个密码</p>
+<pre><code>services:
+  chatgpt-next-web:
+    image: yidadaa/chatgpt-next-web
+    container_name: chatgpt-next-web
+    ports:
+      - &quot;127.0.0.1:3000:3000&quot;
+    environment:
+      - OPENAI_API_KEY=sk-xxxxxx
+      - CODE=访问密码
+      - BASE_URL=https://api.deepseek.com
+      - CUSTOM_MODELS=deepseek-chat
+      - DEFAULT_MODEL=deepseek-chat
+    restart: unless-stopped
+</code></pre>
+<p>搭建完成之后，输入ip:3000即可访问你的面板<br>
+建议有条件的话用caddy或者nginx反代下搞下https<br>
+使用时记得输入下面板密码和模型切换成deepseek<br>
+<img src="https://s3.qklg.net/img/S5dJBGM.png" alt="" loading="lazy"></p>
+<h1 id="2-本地客户端调用">2 本地客户端调用</h1>
+<p>参考 https://github.com/ChatGPTNextWeb/NextChat/issues/6037</p>
+<h2 id="1-下载next-chat">① 下载next chat</h2>
+<p>https://github.com/ChatGPTNextWeb/NextChat/releases</p>
+<p>如果是win的话直接下载 exe安装即可</p>
+<h2 id="2-调用">② 调用</h2>
+<p>如图所示</p>
+<p>模型服务商 OpenAI不变</p>
+<p>DeepSeek API 使用与 OpenAI 兼容的 API 格式</p>
+<p>接口地址填写 https://api.deepseek.com</p>
+<p>api key填写deepseek的api，sk开头的，生成地址 https://platform.deepseek.com/api_keys</p>
+<p>自定义模型名称deepseek-chat</p>
+<p>模型切换成 deepseek-chat</p>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/m7onc1r.png" alt="image-20250127135209762" loading="lazy"></figure>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20250126/">
+              <h3 class="post-title">
+                下一篇：哪吒探针V1启用google登录
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

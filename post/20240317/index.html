@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>自己做字幕和翻译 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">自己做字幕和翻译</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-03-17</span>
+            
+          </div>
+          <div class="post-content">
+            <p>总共两大步<br>
+生成语音转文字和翻译</p>
+<h1 id="一-原文字幕语音转文字">一 原文字幕，语音转文字</h1>
+<h2 id="1下载whisperdesktop">①下载WhisperDesktop</h2>
+<p><a href="https://github.com/Const-me/Whisper/releases">https://github.com/Const-me/Whisper/releases</a><br>
+<img src="https://s3.qklg.net/img/202403171010932.png" alt="" loading="lazy"><br>
+解压缩，打开WhisperDesktop.exe<br>
+<img src="https://s3.qklg.net/img/202403171010503.png" alt="" loading="lazy"></p>
+<h2 id="2下载模型">②下载模型</h2>
+<p><a href="https://huggingface.co/ggerganov/whisper.cpp/tree/main">https://huggingface.co/ggerganov/whisper.cpp/tree/main</a><br>
+我用的是medium，够用了一般<br>
+<img src="https://s3.qklg.net/img/202403171012823.png" alt="" loading="lazy"></p>
+<h2 id="3设置">③设置</h2>
+<p>然后填上模型文件路径<br>
+Model Implementation选择gpu，amd的也是可以的，我用的6800H的核显，点ok<br>
+这边建议用ffmpeg切成五分钟左右的片段，这样子准确度高很多，到后面有时候会出bug<br>
+如果是视频的话，也可以用ffmpeg把音频提取出来<br>
+<img src="https://s3.qklg.net/img/202403171010791.png" alt="" loading="lazy"></p>
+<h2 id="4转换">④转换</h2>
+<p>language选择你原文的语言，translate别勾<br>
+Transcribe File选择音频文件<br>
+Output Format选择SubRip subtitles的srt格式的文件<br>
+Place that file to the input folder的勾上<br>
+<img src="https://s3.qklg.net/img/202403171012714.png" alt="" loading="lazy"><br>
+点完，然后Transcribe开始工作，右上角Debug Console可以看到转换的进度的<br>
+<img src="https://s3.qklg.net/img/202403171012184.png" alt="" loading="lazy"><br>
+我的6800H的核显转换一段五分钟的话，大概一分钟左右完成<br>
+<img src="https://s3.qklg.net/img/202403171012548.png" alt="" loading="lazy"></p>
+<h1 id="二-翻译">二 翻译</h1>
+<p>翻译的话直接用chatgpt，3.5够用了<br>
+用api太贵了，直接免费的web版丢进去完事了<br>
+丢给他翻译就完事了，穷人办法，一分钱都不用花<br>
+用下面这段提示的话，能保留原来的日文字幕，英文的话自己把日文改成英文就行了<br>
+如果它停止了的话就发个go on就行了</p>
+<pre><code>把这个日语的字幕文件转成中日双语，中文在下，日文在下面另起一行，保留原有的日文
+字幕文件如下
+</code></pre>
+<p><img src="https://s3.qklg.net/img/202403171012777.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/202403171012028.png" alt="" loading="lazy"></p>
+<p>参考<br>
+<a href="https://www.bilibili.com/video/av268725141/?p=1&amp;t=160">https://www.bilibili.com/video/av268725141/?p=1&amp;t=160</a><br>
+<a href="https://www.bilibili.com/read/cv22692287/">https://www.bilibili.com/read/cv22692287/</a></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20240307/">
+              <h3 class="post-title">
+                下一篇：将我博客的图片都转换成avif
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

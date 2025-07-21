@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>ios,安卓和win跑流媒体解锁检测脚本 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">ios,安卓和win跑流媒体解锁检测脚本</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-09-10</span>
+            
+          </div>
+          <div class="post-content">
+            <p>本文使用脚本<br>
+github链接:<a href="https://github.com/lmc999/RegionRestrictionCheck">https://github.com/lmc999/RegionRestrictionCheck</a><br>
+脚本</p>
+<pre><code>bash &lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/main/check.sh)
+</code></pre>
+<p>如果github的raw无法访问，可以采用下面jsdelivr加速的</p>
+<pre><code>bash &lt;(curl -L -s https://testingcf.jsdelivr.net/gh/lmc999/RegionRestrictionCheck@main/check.sh)
+</code></pre>
+<p>这个脚本支持：CentOS 6+, Ubuntu 14.04+, Debian 8+, MacOS, Android with Termux</p>
+<p>linux直接运行就可以了，mac的话本人没有</p>
+<h1 id="android">android</h1>
+<p>下载temux终端<br>
+官网<a href="https://termux.dev/en/">https://termux.dev/en/</a><br>
+github下载链接:<a href="https://github.com/termux/termux-app/releases">https://github.com/termux/termux-app/releases</a><br>
+不要从google play下，google play的已经不更新了</p>
+<p>然后复制粘贴运行脚本就好<br>
+首次运行，需要安装python，需要等待一段时间，大概几分钟吧<br>
+<img src="https://s3.qklg.net/img/202310212344255.png" alt="" loading="lazy"><br>
+安装完之后点击你所需的地区，我代理是hytron香港的，选择2,然后回车就行了，结果就会出来了<br>
+<img src="https://s3.qklg.net/img/202310212344162.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/202310212344835.png" alt="" loading="lazy"></p>
+<h1 id="windows">windows</h1>
+<p>安装ubuntu子系统<br>
+应用商店搜ubuntu，我喜欢20.04，我直接装的20.04，<br>
+<img src="https://s3.qklg.net/img/202310212344602.png" alt="" loading="lazy"><br>
+第一次登录需要设置<br>
+自己设置下用户名和密码，用户名叫啥都行，记得linux输入密码是不显示的<br>
+然后输入sudo -i，切换到root，记得输入密码</p>
+<p>接着直接复制粘贴脚本运行就可以了<br>
+<img src="https://s3.qklg.net/img/202310212345519.png" alt="" loading="lazy"></p>
+<h1 id="ios">ios</h1>
+<p>ios可以直接用quan x，stash，loon，surge等检测，甚至可以执行脚本来自动切换，这各自己搜下，网上有教程</p>
+<p>参考原作者github上的，我把他写的稍微详细了点<br>
+<a href="https://github.com/lmc999/RegionRestrictionCheck/wiki/iOS%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%B9%E6%B3%95">https://github.com/lmc999/RegionRestrictionCheck/wiki/iOS运行脚本方法</a><br>
+1下载ish<br>
+<a href="https://apps.apple.com/au/app/ish-shell/id1436902243">https://apps.apple.com/au/app/ish-shell/id1436902243</a></p>
+<p>2下载alpine linux的mini root filesystem到文件 app<br>
+地址:<a href="https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86/alpine-minirootfs-3.13.6-x86.tar.gz">https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86/alpine-minirootfs-3.13.6-x86.tar.gz</a><br>
+打开上面链接，点击更多-储存到文件<br>
+<img src="https://s3.qklg.net/img/202310212345565.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/202310212345546.png" alt="" loading="lazy"></p>
+<p>3打开ish app，点击右小角的设置<br>
+<img src="https://s3.qklg.net/img/202310212345678.png" alt="" loading="lazy"><br>
+点filesystems<br>
+<img src="https://s3.qklg.net/img/202310212345001.png" alt="" loading="lazy"><br>
+点右上角import导入<br>
+<img src="https://s3.qklg.net/img/202310212345291.png" alt="" loading="lazy"><br>
+选择第二部下载的tar.gz包<br>
+<img src="https://s3.qklg.net/img/202310212346746.png" alt="" loading="lazy"><br>
+然后不重启的话，选择Boot From This Filesystem<br>
+<img src="https://s3.qklg.net/img/202310212346284.png" alt="" loading="lazy"></p>
+<p>4安装依赖<br>
+重启完进入ish，点右小角剪贴输入下面命令安装依赖<br>
+<img src="https://s3.qklg.net/img/202310212346279.png" alt="" loading="lazy"></p>
+<pre><code>apk add curl bash gawk python3
+</code></pre>
+<p>5运行脚本</p>
+<pre><code>curl -L -s -o ./check.sh https://git.io/JRw8R &amp;&amp; chmod +x ./check.sh &amp;&amp; bash ./check.sh
+</code></pre>
+<p><img src="https://s3.qklg.net/img/202310212347588.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/202310212347082.png" alt="" loading="lazy"></p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20230904/">
+              <h3 class="post-title">
+                下一篇：分享个可以看到ip的bt下载记录的网站
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

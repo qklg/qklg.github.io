@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>推荐下我正在用的docker | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">推荐下我正在用的docker</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-10-11</span>
+            
+          </div>
+          <div class="post-content">
+            <p>我目前用的这几个，推荐给各位mjj<br>
+还有没有好玩的，推荐下<br>
+1 qbittorrnet<br>
+我主要是配合autobangumi来下bt的<br>
+<a href="https://hub.docker.com/r/linuxserver/qbittorrent">https://hub.docker.com/r/linuxserver/qbittorrent</a></p>
+<p>2 qbittorrnet-bot<br>
+作者github<a href="https://github.com/zeroone2numeral2/qbittorrent-bot">https://github.com/zeroone2numeral2/qbittorrent-bot</a><br>
+这个大佬的博客上看到的<a href="https://syq.pub/archives/138/">https://syq.pub/archives/138/</a>,<br>
+配合tg bot控制qbittorrnet，真的挺好用的</p>
+<p>3 aria2<br>
+我主要是配合油猴脚本和alist下网盘里东西的<br>
+<a href="https://hub.docker.com/r/p3terx/aria2-pro">https://hub.docker.com/r/p3terx/aria2-pro</a></p>
+<p>4 aria2 bot<br>
+用tg bot来控制aria2，aria2群内看到的<br>
+<a href="https://t.me/Aria2c/111793">https://t.me/Aria2c/111793</a><br>
+真的挺好用的</p>
+<p>5 emby<br>
+拿来看片的<br>
+<a href="https://hub.docker.com/r/emby/embyserver">https://hub.docker.com/r/emby/embyserver</a></p>
+<p>6 nastool<br>
+第三方的nastool，我主要下完片之后拿来刮削的<br>
+<a href="https://hub.docker.com/r/hsuyelin/nas-tools">https://hub.docker.com/r/hsuyelin/nas-tools</a><br>
+github链接<a href="https://github.com/hsuyelin/nas-tools">https://github.com/hsuyelin/nas-tools</a></p>
+<p>7 auto_bangumi<br>
+配合qbittorrnet自动下番剧用的<br>
+<a href="https://hub.docker.com/r/estrellaxd/auto_bangumi">https://hub.docker.com/r/estrellaxd/auto_bangumi</a><br>
+github链接<a href="https://github.com/EstrellaXD/Auto_Bangumi">https://github.com/EstrellaXD/Auto_Bangumi</a></p>
+<p>8 chatgpt next<br>
+本地部署chatgpt，真的挺好用的<br>
+<a href="https://hub.docker.com/r/yidadaa/chatgpt-next-web/tags">https://hub.docker.com/r/yidadaa/chatgpt-next-web/tags</a><br>
+github链接<a href="https://github.com/Yidadaa/ChatGPT-Next-Web">https://github.com/Yidadaa/ChatGPT-Next-Web</a></p>
+<p>9 uptime kuma<br>
+拿来ping自己的小鸡，或者别的啥的，挺好用的<br>
+<a href="https://hub.docker.com/r/louislam/uptime-kuma">https://hub.docker.com/r/louislam/uptime-kuma</a><br>
+github链接<a href="https://github.com/louislam/uptime-kuma">https://github.com/louislam/uptime-kuma</a></p>
+<p>10 homarr<br>
+主页，我拿来当导航页用的<br>
+<a href="https://github.com/ajnart/homarr">https://github.com/ajnart/homarr</a><br>
+教程可以看下这个<a href="https://www.bilibili.com/video/BV1jh4y1X7fZ/">https://www.bilibili.com/video/BV1jh4y1X7fZ/</a><br>
+这个哥们还整了一堆图标，挺好用的<br>
+<a href="https://github.com/xushier/HD-Icons">https://github.com/xushier/HD-Icons</a><br>
+我的完全体<br>
+<img src="https://s3.qklg.net/img/202402140525807.png" alt="" loading="lazy"></p>
+<p>这个可以配合dash dot看机子状况</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20231010/">
+              <h3 class="post-title">
+                下一篇：分享个ping主机，通知telegram bot的脚本
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

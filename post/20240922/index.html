@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Cloudflare WARP MASQUE体验分享 | qklg</title>
+<meta name="description" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://qklg.net/favicon.ico?v=1753098002439">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://qklg.net/styles/main.css">
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NG858NX84N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NG858NX84N');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://qklg.net">
+        <img class="avatar" src="https://qklg.net/images/avatar.png?v=1753098002439" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://qklg.net">
+        <h1 class="site-title">qklg</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://cse.google.com/cse?cx=e12eaeb91706d48bf" class="menu purple-link">
+            搜索
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Cloudflare WARP MASQUE体验分享</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-09-22</span>
+            
+          </div>
+          <div class="post-content">
+            <h1 id="android">Android</h1>
+<p>根据隔壁群大佬说的<br>
+google play加入warp的beta测试，把app删了，重新下，下载好之后过个几分钟会有个beta更新，<br>
+更新完之后就行了<br>
+<img src="https://s3.qklg.net/img/DHsxoPn.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/pbXJr0W.png" alt="" loading="lazy"></p>
+<p>然后app里面，设置-高级-连接选项-tunnel protocol选择MASQUE<br>
+<img src="https://s3.qklg.net/img/hX61rox.png" alt="" loading="lazy"><br>
+<img src="https://s3.qklg.net/img/rvXL4q6.png" alt="" loading="lazy"></p>
+<p>速度还不错，移动甚至能直连cf的hk pop<br>
+<img src="https://s3.qklg.net/img/8sKc8qQ.png" alt="" loading="lazy"></p>
+<h1 id="windows">Windows</h1>
+<p>下载新版的，官网就行  https://one.one.one.one/</p>
+<p>安装好之后，</p>
+<p>新建个mdm.xml，放到 C:\ProgramData\Cloudflare 下面</p>
+<pre><code>&lt;dict&gt;
+    &lt;key&gt;warp_tunnel_protocol&lt;/key&gt;
+    &lt;string&gt;masque&lt;/string&gt;
+&lt;/dict&gt;
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://s3.qklg.net/img/cZt7u5a.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s3.qklg.net/img/RflvJmv.png" alt="" loading="lazy"></figure>
+<p>连的是洛杉矶的pop</p>
+<figure data-type="image" tabindex="3"><img src="https://s3.qklg.net/img/3gCQupf.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://s3.qklg.net/img/OUn4KVk.png" alt="" loading="lazy"></figure>
+<p>测了下速度</p>
+<p>油管十万多</p>
+<figure data-type="image" tabindex="5"><img src="https://s3.qklg.net/img/N5M20Mz.png" alt="" loading="lazy"></figure>
+<p>speedtest</p>
+<figure data-type="image" tabindex="6"><img src="https://s3.qklg.net/img/PgvsPoZ.png" alt="" loading="lazy"></figure>
+<h1 id="ios">ios</h1>
+<p>ios简单，下好app</p>
+<p>设置-高级-连接选项-tunnel protocol选择MASQUE</p>
+<figure data-type="image" tabindex="7"><img src="https://s3.qklg.net/img/1aaxvuY.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://s3.qklg.net/img/ACt1NvD.png" alt="" loading="lazy"></figure>
+<p>速度还行</p>
+<figure data-type="image" tabindex="9"><img src="https://s3.qklg.net/img/4fzSGzD.png" alt="" loading="lazy"></figure>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://qklg.net/post/20240829/">
+              <h3 class="post-title">
+                下一篇：在无人关注的角落里，cf的ipfs公共网关无了
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan"></div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  </a><br>Powered by<a href="https://github.com/getgridea/gridea" 
+target="_blank">  Gridea</a>.
+
+Hosted on   <a href="https://pages.cloudflare.com/" target="_blank">  Cloudflare Pages | <a class="rss" href="https://qklg.net/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
